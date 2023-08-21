@@ -5,6 +5,21 @@
         private const int COST_PER_KM = 10;
         private const int MIN_FARE = 5;
         private const int COST_PER_MIN = 1;
+        public int totalNumOfRides = 0;
+        public double totalFare = 0;
+        public double averageFare = 0;
+        public int TotalNumOfRides()
+        {
+            return totalNumOfRides;
+        }
+        public double TotalFare()
+        {
+            return totalFare;
+        }
+        public double AverageFare()
+        {
+            return averageFare;
+        }
 
         public double CalculateFare(double distance, double time)
         {
@@ -17,14 +32,13 @@
         }
         public double CalculateFare(Ride[] rides)
         {
-            double totalAmount = 0;
             foreach(var  ride in rides)
             {
-                totalAmount += ride.Distance * COST_PER_KM + ride.Time * COST_PER_MIN;
+                totalFare += (ride.Distance * COST_PER_KM + ride.Time * COST_PER_MIN);
             }
-            int numOfRides = rides.Length;
-            double aggregateAmount = totalAmount / numOfRides;
-            return aggregateAmount;
+            totalNumOfRides = rides.Length;
+            averageFare = totalFare / totalNumOfRides;
+            return averageFare;
         }
     }
 }
