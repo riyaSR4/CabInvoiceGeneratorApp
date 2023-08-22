@@ -10,6 +10,6 @@ namespace CabInvoiceGeneratorApp
     {
         public int Distance { get; set; }
         public int Time { get; set; }
-        
+        public string RideType { get; set; }
     }
 }

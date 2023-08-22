@@ -17,7 +17,7 @@ namespace CabInvoiceGeneratorAppTest
         {
             Ride[] ride =
             {
-                new Ride(){Distance = 10, Time = 5}
+                new Ride(){Distance = 10, Time = 5, RideType="NORMAL"}
             };
             double actual = invoiceService.CalculateFare(ride);
             double expected = 105;
@@ -28,7 +28,8 @@ namespace CabInvoiceGeneratorAppTest
         {
             Ride[] ride =
             {
-                new Ride(){Distance = 10, Time = 5}
+                new Ride(){Distance = 10, Time = 5, RideType = "NORMAL"},
+                new Ride(){Distance = 10, Time = 5, RideType = "PREMIUM"}
             };
             invoiceService.CalculateFare(ride);
             int actual = invoiceService.TotalNumOfRides();
@@ -41,7 +42,7 @@ namespace CabInvoiceGeneratorAppTest
             string userId = "Riya";
             Ride[] ride =
             {
-                new Ride(){Distance = 10, Time = 5}
+                new Ride(){Distance = 10, Time = 5, RideType = "NORMAL"}
             };
             RideRepository rideRepository = new RideRepository();
             rideRepository.AddRides(userId, ride);
