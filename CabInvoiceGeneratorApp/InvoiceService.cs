@@ -32,6 +32,7 @@
         }
         public double CalculateFare(Ride[] rides)
         {
+             totalFare = 0;
             foreach(var  ride in rides)
             {
                 totalFare += (ride.Distance * COST_PER_KM + ride.Time * COST_PER_MIN);
