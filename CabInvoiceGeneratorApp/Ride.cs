@@ -10,5 +10,6 @@ namespace CabInvoiceGeneratorApp
     {
         public int Distance { get; set; }
         public int Time { get; set; }
+        
     }
 }

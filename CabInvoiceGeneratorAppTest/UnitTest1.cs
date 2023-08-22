@@ -35,5 +35,19 @@ namespace CabInvoiceGeneratorAppTest
             int expected = ride.Length;
             Assert.AreEqual(actual, expected);
         }
+        [Test]
+        public void GivenRidesWithUserId_WhenChecked_ReturnTotalRides()
+        {
+            string userId = "Riya";
+            Ride[] ride =
+            {
+                new Ride(){Distance = 10, Time = 5}
+            };
+            RideRepository rideRepository = new RideRepository();
+            rideRepository.AddRides(userId, ride);
+            double actual = invoiceService.CalculateFare(rideRepository.GetRides(userId));
+            double expected = 105;
+            Assert.AreEqual(actual, expected);
+        }
     }
 }
